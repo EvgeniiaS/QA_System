@@ -1,0 +1,10 @@
+#!/bin/bash
+
+python input.py
+
+python3 -m allennlp.run predict --output-file out.json \
+    bidaf-model.tar.gz \
+    text_question.json
+    
+
+jq '.best_span_str' out.json
